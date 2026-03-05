@@ -124,6 +124,16 @@ It may read or rely on `context` fields; it should not depend on Express/HTTP. O
 - **Pipeline** — Single, explicit execution order. No complex control flow in the runner.
 - **Testable** — Steps and utils are unit-tested with mocked `fs` and `exec`; the entrypoint is tested with mocked steps and prompts.
 
+## Publishing (maintainers)
+
+Before publishing to npm:
+
+1. Run `npm run build` (or rely on `prepublishOnly`, which runs it automatically on `npm publish`).
+2. Ensure `package.json` has the desired `version` and that `files` (e.g. `dist`, `templates`) are correct.
+3. Run `npm publish` (requires an npm account and login with `npm login`).
+
+Optional: add `repository`, `homepage`, and `bugs` to `package.json` so the npm package page shows links to the repo and issue tracker.
+
 ## License
 
 MIT

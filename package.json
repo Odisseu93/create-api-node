@@ -1,7 +1,7 @@
 {
   "name": "create-node-api",
   "version": "0.1.0",
-  "description": "CNA - Create Node API. Scaffolding CLI for Node + Express + TypeScript.",
+  "description": "Scaffolding CLI for Node + TypeScript APIs. Choose Express, NestJS, or VkrunJS template; get a ready-to-run project with ESLint, Prettier, and Jest.",
   "author": "Ulisses Silvério/Odisseu93",
   "license": "MIT",
   "keywords": ["cli", "scaffolding", "node", "express", "typescript", "create-node-api", "cna"],
@@ -12,6 +12,7 @@
   "main": "dist/bin/index.js",
   "files": ["dist", "templates"],
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/bin/index.js",
