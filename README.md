@@ -79,11 +79,50 @@ npm start
 │   ├── base/      # Express + TypeScript
 │   ├── nest/      # NestJS
 │   └── vkrun/     # VkrunJS
-├── utils/         # Helpers: fs, exec, logger, prompt, spinner
+├── utils/         # Helpers: fs, exec, logger, prompt, spinner, errors
 ├── package.json
 ├── tsconfig.json
 └── jest.config.cjs
 ```
+
+## Architecture
+
+The CLI follows a **task-based pipeline**: the entrypoint collects input via prompts, builds a shared **context**, then runs a fixed sequence of **steps**. Each step receives the same context and can fail (aborting the run).
+
+### Pipeline order
+
+1. **Init** — Validates or creates the target directory; fails if it already exists and is not empty.
+2. **Generate** — Copies the chosen template into the target dir and sets the project name in `package.json`.
+3. **Install** — Runs the package manager (`npm` / `yarn` / `pnpm`) in the generated project.
+4. **Lint config** — Writes `.eslintrc.json` and `.prettierrc` into the generated project.
+5. **Test config** — Writes `jest.config.js` into the generated project.
+6. **Finalize** — Prints success and next steps (`cd <dir>`, `npm run dev`).
+
+The **runner** (orchestration in `bin/index.ts`) runs these steps in order; no branching, only one path. Conditionals (e.g. which template) live inside steps or the entrypoint.
+
+### Dependency rules
+
+- **bin/** — Entrypoint only. Imports from `core/`, `steps/`, `utils/`. No business logic; only prompts, context creation, and step invocation.
+- **core/** — Shared state and registry. `context.ts` holds `targetDir`, `projectName`, `packageManager`, `templateBasePath`. `runner.ts` runs a list of steps. `templates.ts` defines available templates. Core does not import from `bin/` or `steps/`.
+- **steps/** — Single-responsibility functions `(context) => Promise<void>`. Import from `core/context` and `utils/` (fs, exec, logger). Do not import from `bin/`. On error they throw; the entrypoint catches and shows a user-friendly message (via `utils/errors`).
+- **utils/** — Pure helpers (fs, exec, logger, prompt, spinner, errors). No imports from `core/` or `steps/`. Reusable and easy to test with mocks.
+- **templates/** — Static files only. No application code; generation logic lives in `steps/generate.ts`.
+
+### Step contract
+
+Every step exports a function:
+
+```ts
+(context: Context) => Promise<void>
+```
+
+It may read or rely on `context` fields; it should not depend on Express/HTTP. On failure it throws; the CLI maps errors to user-facing messages (permission denied, install failed, etc.) and exits with code 1.
+
+### Principles
+
+- **Modular** — One step, one job. New steps (e.g. a new config writer) can be added without changing others.
+- **Pipeline** — Single, explicit execution order. No complex control flow in the runner.
+- **Testable** — Steps and utils are unit-tested with mocked `fs` and `exec`; the entrypoint is tested with mocked steps and prompts.
 
 ## License
 
