@@ -4,6 +4,9 @@
   "description": "Scaffolding CLI for Node + TypeScript APIs (CAN - Create API Node). Choose Express, NestJS, or VkrunJS template; get a ready-to-run project with ESLint, Prettier, and Jest.",
   "author": "Ulisses Silvério/Odisseu93",
   "license": "MIT",
+  "repository": "github:Odisseu93/create-api-node",
+  "homepage": "https://github.com/Odisseu93/create-api-node#readme",
+  "bugs": "https://github.com/Odisseu93/create-api-node/issues",
   "keywords": [
     "cli",
     "scaffolding",
