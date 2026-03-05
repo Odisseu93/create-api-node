@@ -14,7 +14,7 @@ import { runInstall } from '../steps/install';
 import { runLint } from '../steps/lint';
 import { runTest } from '../steps/test';
 import { runFinalize } from '../steps/finalize';
-import { info, success, warn, step, title, green, error as logError } from '../utils/logger';
+import { info, success, warn, step, title, error as logError } from '../utils/logger';
 import { startSpinner, stopSpinner } from '../utils/spinner';
 import { ask, askTemplateChoice } from '../utils/prompt';
 import { getUserFriendlyMessage } from '../utils/errors';
@@ -42,16 +42,6 @@ export async function main(argv: string[]): Promise<void> {
 
   title('\nCAN - Create API Node\n');
   info('Scaffolding CLI for Node + TypeScript APIs.\n');
-  green(
-    [
-      '   ____ _   _    _    ',
-      '  / ___| \\ | |  / \\   ',
-      ' | |   |  \\| | / _ \\  ',
-      ' | |___| |\\  |/ ___ \\ ',
-      '  \\____|_| \\_/_/   \\_\\',
-      '',
-    ].join('\n'),
-  );
 
   let projectName = await ask('Project name', defaultProjectName);
   if (!projectName) {

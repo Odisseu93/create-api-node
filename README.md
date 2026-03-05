@@ -28,7 +28,7 @@ npx create-api-node
 npx create-api-node my-app
 ```
 
-You can also use the short name: `npx can` or `npx can my-app`. If you install globally (`npm i -g create-api-node`), the `create-api-node` and `can` commands are available.
+You can also use the short name `can` after installing globally: `npm i -g create-api-node`, then `can` or `can my-app`. With npx use `npx create-api-node` (the package name).
 
 ### What happens
 

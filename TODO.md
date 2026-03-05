@@ -1,10 +1,10 @@
 # Todolist — CAN (Create API Node) CLI Development
 
-Goal: automate creation of a Node + Express + TypeScript API via `npx create-api-node` (or `npx can`). The CLI installs dependencies, configures TypeScript, ESLint/Prettier, Jest, and generates `package.json`, then exits.
+Goal: automate creation of a Node + Express + TypeScript API via `npx create-api-node` (or `can` after global install). The CLI installs dependencies, configures TypeScript, ESLint/Prettier, Jest, and generates `package.json`, then exits.
 
 **Application name:** CAN - Create API Node (package: **create-api-node**)  
 **Package:** `create-api-node`  
-**Commands:** `npx create-api-node <dir>` or `npx can <dir>`
+**Commands:** `npx create-api-node <dir>` or `can <dir>` (with `npm i -g create-api-node`)
 
 ---
 
@@ -77,7 +77,7 @@ Do not commit new implementation without the corresponding test. For each code i
 
 - [x] Ensure CLI `package.json` has `"bin": { "create-api-node": "./dist/bin/index.js", "can": "./dist/bin/index.js" }`
 - [x] Build: script that compiles TypeScript to `dist/` and points bin to `dist/bin/index.js`
-- [ ] Test locally with `npm link` and `npx create-api-node` (or `npx can`) from another directory
+- [ ] Test locally with `npm link` and `npx create-api-node` (or `can`) from another directory
 - [x] Publish to npm and document install/usage in README
 
 ---

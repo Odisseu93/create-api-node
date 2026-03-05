@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Bin short name: `cna` replaced by `can` (align with product name CAN). Use `npx can` instead of `npx cna`.
+- **Branding:** Binary `cna` replaced by `can`; keyword and docs updated to CAN / Create API Node only.
+- **CLI UI:** Removed ASCII art logo; startup now shows plain text (title and description).
 - README: add LICENSE link in License section.
 - Rule: merge to main only via PR (11-git-operations.mdc).
 - Release workflow: add workflow_dispatch with dry_run option to test publish without publishing.
@@ -17,6 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Rule 14-github-repo-settings.mdc documenting GitHub Settings (branches, environments, actions, rulesets).
+
+### Fixed
+
+- Test temp dir prefixes and TODO/docs no longer reference `cna` or CNA.
+- CI release workflow: dry_run input comparison (workflow_dispatch inputs are strings).
 
 ## [0.1.2] - 2026-03-05
 
