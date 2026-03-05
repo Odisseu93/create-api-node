@@ -87,7 +87,7 @@ Do not commit new implementation without the corresponding test. For each code i
 (Tests are already written first in Phases 2 and 3; this phase focuses on coverage and UX.)
 
 - [ ] Review coverage: all steps, runner, and utils have corresponding tests
-- [ ] User-friendly error handling (dir already exists, permission denied, npm failed, etc.)
+- [x] User-friendly error handling (dir already exists, permission denied, npm failed, etc.)
 - [x] CLI README with usage, templates, development scripts, and project structure
 
 ---
