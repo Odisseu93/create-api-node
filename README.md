@@ -169,4 +169,4 @@ Releases are further protected by the **tags-release** ruleset (Settings → Rul
 
 ## License
 
-MIT
+MIT — see [LICENSE](LICENSE).
