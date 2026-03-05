@@ -1,0 +1,40 @@
+{
+  "name": "create-node-api",
+  "version": "0.1.0",
+  "description": "CNA - Create Node API. Scaffolding CLI for Node + Express + TypeScript.",
+  "author": "Ulisses Silvério/Odisseu93",
+  "license": "MIT",
+  "keywords": ["cli", "scaffolding", "node", "express", "typescript", "create-node-api", "cna"],
+  "bin": {
+    "create-node-api": "./dist/bin/index.js",
+    "cna": "./dist/bin/index.js"
+  },
+  "main": "dist/bin/index.js",
+  "files": ["dist", "templates"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/bin/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"bin/**/*.ts\" \"core/**/*.ts\" \"steps/**/*.ts\" \"utils/**/*.ts\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  }
+}
