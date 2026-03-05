@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-03-04
+## [0.1.0] - 2025-03-04
 
 ### Added
 
@@ -22,4 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Node.js >= 18.
 - npm, yarn, or pnpm for the generated project (CLI uses npm by default).
 
-[1.0.0]: https://github.com/your-org/create-node-api/releases/tag/v1.0.0
+> **Note:** 0.x.y indicates initial development; API and behavior may change before 1.0.0.
+
+[0.1.0]: https://github.com/your-org/create-node-api/releases/tag/v0.1.0
