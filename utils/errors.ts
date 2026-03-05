@@ -25,7 +25,7 @@ export function getUserFriendlyMessage(err: unknown): string {
 
     if (code === 'ENOENT') {
       if (msg.includes('template') || msg.includes('templates')) {
-        return 'Template files not found. The CLI may be misinstalled; try reinstalling create-node-api.';
+        return 'Template files not found. The CLI may be misinstalled; try reinstalling create-api-node.';
       }
       return `Not found: ${msg}. Check that the path exists and try again.`;
     }

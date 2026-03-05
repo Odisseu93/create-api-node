@@ -20,13 +20,11 @@ Create a new API project in the current directory. You can pass an optional defa
 
 ```bash
 # Using npx (recommended)
-npx create-node-api
-npx create-node-api my-app
-
-# Short name
-npx cna
-npx cna my-app
+npx create-api-node
+npx create-api-node my-app
 ```
+
+You can also use the short name: `npx cna` or `npx cna my-app`. If you install globally (`npm i -g create-api-node`), the `create-api-node` and `cna` commands are available.
 
 ### What happens
 
