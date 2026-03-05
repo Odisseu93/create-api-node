@@ -75,10 +75,10 @@ Do not commit new implementation without the corresponding test. For each code i
 
 ## Phase 5 — Publish and npx Usage
 
-- [ ] Ensure CLI `package.json` has `"bin": { "create-node-api": "./dist/bin/index.js", "cna": "./dist/bin/index.js" }`
-- [ ] Build: script that compiles TypeScript to `dist/` and points bin to `dist/bin/index.js` (or use ts-node/tsx for dev)
-- [ ] Test locally with `npm link` and `npx create-node-api ./my-app` (or `npx cna ./my-app`)
-- [ ] Publish to npm (or use via `npx create-node-api`) and document in README
+- [x] Ensure CLI `package.json` has `"bin": { "create-node-api": "./dist/bin/index.js", "cna": "./dist/bin/index.js" }`
+- [x] Build: script that compiles TypeScript to `dist/` and points bin to `dist/bin/index.js`
+- [ ] Test locally with `npm link` and `npx create-node-api` (or `npx cna`) from another directory
+- [ ] Publish to npm and document install/usage in README
 
 ---
 
@@ -88,7 +88,7 @@ Do not commit new implementation without the corresponding test. For each code i
 
 - [ ] Review coverage: all steps, runner, and utils have corresponding tests
 - [ ] User-friendly error handling (dir already exists, permission denied, npm failed, etc.)
-- [ ] CLI README with usage, options, and examples
+- [x] CLI README with usage, templates, development scripts, and project structure
 
 ---
 
@@ -103,4 +103,4 @@ Do not commit new implementation without the corresponding test. For each code i
 
 ---
 
-*Pipeline: **input → prompts → generate → install → finalize*** (lint and test may be part of generate or separate steps per architecture rule.)
+*Pipeline: **prompts (name, template) → init → generate → install → lint config → test config → finalize***
