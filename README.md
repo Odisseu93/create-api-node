@@ -148,8 +148,18 @@ Releases are published on [GitHub Releases](https://github.com/Odisseu93/create-
 
 ### CI/CD (GitHub Actions)
 
-- **CI** (`.github/workflows/ci.yml`) — Runs on every push and pull request to `main` and `develop`: lint, tests, test coverage, and build. Use branch protection so PRs must pass CI before merge.
-- **CD** (`.github/workflows/release.yml`) — Runs when a tag `v*` is pushed (e.g. `v0.1.3`): builds and publishes to npm. Requires the **NPM_TOKEN** secret in the repository.
+- **CI** (`.github/workflows/ci.yml`) — Runs on every push and pull request to `main` and `develop`: lint, tests, test coverage, and build.
+- **CD** (`.github/workflows/release.yml`) — Runs when a tag `v*` is pushed (e.g. `v0.1.3`): builds and publishes to npm. Uses the **release** environment so a required reviewer must approve the run before publish. Requires the **NPM_TOKEN** secret.
+
+### Branch protection (main and develop)
+
+On GitHub, `main` and `develop` are protected with:
+
+- **Require a pull request** before merging (no direct pushes).
+- **Require 1 approval** before merging.
+- **Require status checks to pass** — the **lint-test-build** (CI) job must succeed.
+
+Releases are further protected by the **tags-release** ruleset (who can create/update tags) and the **release** environment (manual approval before npm publish).
 
 **Setting up automatic npm publish:**
 
