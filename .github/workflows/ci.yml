@@ -1,3 +1,4 @@
+# Lint, test, and build on push/PR to main and develop.
 name: CI
 
 on:
@@ -5,6 +6,7 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+  workflow_dispatch: # run manually from Actions tab
 
 jobs:
   lint-test-build:
