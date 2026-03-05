@@ -13,6 +13,14 @@ Use `main` for the primary branch (not `master` or other names). When pushing, p
 
 ---
 
+## Merge to main
+
+**Changes reach `main` only through a pull request.**
+
+Do not push directly to `main`. Work on a branch (e.g. `feature/...`, `fix/...`), push the branch, open a PR targeting `main`, and merge after review and CI pass. This matches GitHub branch protection (Settings → Branches) and keeps history auditable.
+
+---
+
 ## Main Rule
 
 **NEVER run `git commit` or `git push` without explicit user approval.**
