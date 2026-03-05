@@ -7,12 +7,19 @@ alwaysApply: true
 
 ## Overview
 
-The project is a **scaffolding CLI** (similar to Create React App or Vite) that generates a Node + Express + TypeScript API with standard tooling. The flow follows a pipeline: **input → prompts → generate → install → finalize**.
+The project is the **create-api-node** npm package (product name: **CAN - Create API Node**), a scaffolding CLI that generates a Node + TypeScript API from a chosen template (Express, NestJS, or VkrunJS). The flow follows a pipeline: **input → prompts → generate → install → finalize**.
+
+## Project naming
+
+- **Package name (npm):** `create-api-node` — use in commands, `package.json`, and links.
+- **Product name (display):** **CAN - Create API Node**. Use consistently in docs, CLI title, and templates.
+- **Short name:** CAN.
+- **Repo folder:** Prefer `create-api-node` to match the package; avoid `create_node_api` in new references.
 
 ## Folder Structure
 
 ```
-create-my-api/
+create-api-node/
 ├── bin/
 │   └── index.ts          # CLI entrypoint (shebang, parse args, invoke runner)
 │

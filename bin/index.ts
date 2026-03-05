@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * CNA - Create Node API
+ * CAN - Create API Node (create-api-node)
  * CLI entrypoint: parse args, create context, invoke runner.
  */
 
@@ -40,7 +40,7 @@ export async function main(argv: string[]): Promise<void> {
   const args = argv.slice(2);
   const defaultProjectName = args[0] ?? 'my-api';
 
-  title('\nCNA — Create Node API\n');
+  title('\nCAN - Create API Node\n');
   info('Scaffolding CLI for Node + TypeScript APIs.\n');
   green(
     [

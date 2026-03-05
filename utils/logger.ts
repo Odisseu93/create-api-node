@@ -37,7 +37,7 @@ export function step(message: string): void {
 }
 
 /**
- * Title or header (e.g. "CNA — Create Node API"). Bold.
+ * Title or header (e.g. "CAN - Create API Node"). Bold.
  */
 export function title(message: string): void {
   console.log(`${BOLD}${message}${RESET}`);

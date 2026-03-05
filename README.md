@@ -1,6 +1,10 @@
-# CNA — Create Node API
+# CAN - Create API Node
 
-**CNA** is a scaffolding CLI (similar to Create React App or Vite) that generates a Node + TypeScript API from a chosen template. It sets up the project folder, installs dependencies, and configures ESLint, Prettier, and Jest so you can start coding right away.
+[![npm](https://img.shields.io/npm/v/create-api-node.svg)](https://www.npmjs.com/package/create-api-node)
+
+**CAN** (Create API Node) is a scaffolding CLI published on npm as **create-api-node**. Use the package name in commands (`npx create-api-node`); the product name is CAN - Create API Node. For consistency, the repo folder can be named `create-api-node` to match the package.
+
+It works like Create React App or Vite: it generates a Node + TypeScript API from a chosen template. It sets up the project folder, installs dependencies, and configures ESLint, Prettier, and Jest so you can start coding right away.
 
 ## Features
 

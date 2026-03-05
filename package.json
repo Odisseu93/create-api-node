@@ -1,7 +1,7 @@
 {
   "name": "create-api-node",
-  "version": "0.1.0",
-  "description": "Scaffolding CLI for Node + TypeScript APIs (CNA). Choose Express, NestJS, or VkrunJS template; get a ready-to-run project with ESLint, Prettier, and Jest.",
+  "version": "0.1.1",
+  "description": "Scaffolding CLI for Node + TypeScript APIs (CAN - Create API Node). Choose Express, NestJS, or VkrunJS template; get a ready-to-run project with ESLint, Prettier, and Jest.",
   "author": "Ulisses Silvério/Odisseu93",
   "license": "MIT",
   "keywords": [
@@ -11,6 +11,7 @@
     "express",
     "typescript",
     "create-api-node",
+    "can",
     "cna"
   ],
   "bin": {

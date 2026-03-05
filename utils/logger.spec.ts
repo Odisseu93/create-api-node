@@ -41,7 +41,7 @@ describe('logger', () => {
   });
 
   it('title should log the message', () => {
-    title('CNA');
-    expect(stdout).toHaveBeenCalledWith(expect.stringContaining('CNA'));
+    title('CAN');
+    expect(stdout).toHaveBeenCalledWith(expect.stringContaining('CAN'));
   });
 });

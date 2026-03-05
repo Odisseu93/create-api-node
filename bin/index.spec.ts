@@ -54,7 +54,7 @@ import { runLint } from '../steps/lint';
 import { runTest } from '../steps/test';
 import { runFinalize } from '../steps/finalize';
 
-describe('CNA CLI main', () => {
+describe('CAN CLI main', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.mocked(ask).mockResolvedValue('my-api');

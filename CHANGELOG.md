@@ -5,11 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-03-05
+
+### Changed
+
+- Product name updated to **CAN - Create API Node** (was CNA — Create Node API). Package name remains `create-api-node`; binaries `create-api-node` and `cna` unchanged.
+
 ## [0.1.0] - 2025-03-04
 
 ### Added
 
-- Initial release of CNA (Create Node API) CLI.
+- Initial release of CAN (Create API Node) CLI.
 - Interactive prompts for project name and template selection.
 - Pipeline: init, generate, install, lint config, test config, finalize.
 - Three templates: **base** (Express + TypeScript), **nest** (NestJS), **vkrun** (VkrunJS).
@@ -24,4 +30,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 > **Note:** 0.x.y indicates initial development; API and behavior may change before 1.0.0.
 
-[0.1.0]: https://github.com/your-org/create-api-node/releases/tag/v0.1.0
+[0.1.1]: https://www.npmjs.com/package/create-api-node/v/0.1.1
+[0.1.0]: https://www.npmjs.com/package/create-api-node/v/0.1.0

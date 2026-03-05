@@ -1,8 +1,8 @@
-# Todolist — CNA (Create Node API) CLI Development
+# Todolist — CAN (Create API Node) CLI Development
 
 Goal: automate creation of a Node + Express + TypeScript API via `npx create-api-node` (or `npx cna`). The CLI installs dependencies, configures TypeScript, ESLint/Prettier, Jest, and generates `package.json`, then exits.
 
-**Application name:** CNA - Create Node API  
+**Application name:** CAN - Create API Node (package: **create-api-node**)  
 **Package:** `create-api-node`  
 **Commands:** `npx create-api-node <dir>` or `npx cna <dir>`
 
