@@ -17,6 +17,7 @@ import { runFinalize } from '../steps/finalize';
 import { info, success, warn, step, title, green, error as logError } from '../utils/logger';
 import { startSpinner, stopSpinner } from '../utils/spinner';
 import { ask, askTemplateChoice } from '../utils/prompt';
+import { getUserFriendlyMessage } from '../utils/errors';
 import * as fs from '../utils/fs';
 
 const TEMPLATES_DIR = path.join(__dirname, '..', '..', 'templates');
@@ -95,7 +96,7 @@ export async function main(argv: string[]): Promise<void> {
 
 if (require.main === module) {
   main(process.argv).catch((err) => {
-    const message = err instanceof Error ? err.message : String(err);
+    const message = getUserFriendlyMessage(err);
     logError(message);
     if (err instanceof Error && err.stack && process.env.DEBUG) {
       console.error('\x1b[2m\x1b[31m' + err.stack + '\x1b[0m');
