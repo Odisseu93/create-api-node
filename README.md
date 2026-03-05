@@ -146,6 +146,17 @@ Releases are published on [GitHub Releases](https://github.com/Odisseu93/create-
 - **Release notes** — Notes are derived from [CHANGELOG.md](CHANGELOG.md). When creating a new release, tag the commit that bumps the version, push the tag, then create the release on GitHub (via the UI or [GitHub CLI](https://cli.github.com/)) with the corresponding changelog section.
 - **Docs** — [About GitHub Releases](https://docs.github.com/pt/repositories/releasing-projects-on-github/about-releases) (GitHub Docs).
 
+### CI/CD (GitHub Actions)
+
+- **CI** (`.github/workflows/ci.yml`) — Runs on every push and pull request to `main` and `develop`: lint, tests, test coverage, and build. Use branch protection so PRs must pass CI before merge.
+- **CD** (`.github/workflows/release.yml`) — Runs when a tag `v*` is pushed (e.g. `v0.1.3`): builds and publishes to npm. Requires the **NPM_TOKEN** secret in the repository.
+
+**Setting up automatic npm publish:**
+
+1. On [npmjs.com](https://www.npmjs.com/), generate an **Access Token** (Automation or granular with “Publish” scope).
+2. In the repo: **Settings → Secrets and variables → Actions → New repository secret**. Name: `NPM_TOKEN`, value: the token.
+3. To release: bump `version` in `package.json`, update [CHANGELOG.md](CHANGELOG.md), commit, then create and push the tag (e.g. `git tag v0.1.3 && git push origin v0.1.3`). The workflow will publish to npm; you can then create the GitHub Release from the same tag.
+
 ## License
 
 MIT
