@@ -128,6 +128,8 @@ It may read or rely on `context` fields; it should not depend on Express/HTTP. O
 
 ## Publishing (maintainers)
 
+### npm
+
 Before publishing to npm:
 
 1. Run `npm run build` (or rely on `prepublishOnly`, which runs it automatically on `npm publish`).
@@ -135,6 +137,14 @@ Before publishing to npm:
 3. Run `npm publish` (requires an npm account and login with `npm login`).
 
 Optional: add `repository`, `homepage`, and `bugs` to `package.json` so the npm package page shows links to the repo and issue tracker.
+
+### GitHub Releases
+
+Releases are published on [GitHub Releases](https://github.com/Odisseu93/create-api-node/releases). They follow [Semantic Versioning](https://semver.org/) and the project rules in [.cursor/rules/12-versioning.mdc](.cursor/rules/12-versioning.mdc).
+
+- **Tags** — Each release is based on a Git tag `vMAJOR.MINOR.PATCH` (e.g. `v0.1.2`). Never skip or reuse version numbers.
+- **Release notes** — Notes are derived from [CHANGELOG.md](CHANGELOG.md). When creating a new release, tag the commit that bumps the version, push the tag, then create the release on GitHub (via the UI or [GitHub CLI](https://cli.github.com/)) with the corresponding changelog section.
+- **Docs** — [About GitHub Releases](https://docs.github.com/pt/repositories/releasing-projects-on-github/about-releases) (GitHub Docs).
 
 ## License
 

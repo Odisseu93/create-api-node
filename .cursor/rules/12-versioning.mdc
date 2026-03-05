@@ -54,3 +54,7 @@ Merge `release/1.5.0` into `main` (or your default release branch) and tag with 
 - **Never** skip or reuse version numbers in published releases.
 - Tag releases as `vMAJOR.MINOR.PATCH` (e.g. `v1.4.2`).
 - Document breaking changes in release notes when bumping MAJOR.
+
+## GitHub Releases
+
+Releases are published on [GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases). Each release is based on a **Git tag** that marks the commit where the version was set (e.g. the commit that bumps `package.json` to that version). Push the tag to the remote, then create the release in the GitHub UI or with the [GitHub CLI](https://cli.github.com/) (`gh release create <tag> --title "vX.Y.Z" --notes "..."`). Use the relevant section of `CHANGELOG.md` as the release notes so the changelog stays the single source of truth.
