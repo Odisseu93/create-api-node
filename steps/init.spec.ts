@@ -12,7 +12,7 @@ describe('runInit', () => {
   let tmpDir: string;
 
   beforeEach(async () => {
-    tmpDir = await fsNode.mkdtemp(path.join(os.tmpdir(), 'cna-init-'));
+    tmpDir = await fsNode.mkdtemp(path.join(os.tmpdir(), 'can-init-'));
     jest.clearAllMocks();
   });
 

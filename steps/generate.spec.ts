@@ -11,7 +11,7 @@ describe('runGenerate', () => {
   let tmpDir: string;
 
   beforeEach(async () => {
-    tmpDir = await fsNode.mkdtemp(path.join(os.tmpdir(), 'cna-generate-'));
+    tmpDir = await fsNode.mkdtemp(path.join(os.tmpdir(), 'can-generate-'));
     jest.clearAllMocks();
   });
 

@@ -1,10 +1,10 @@
 # Todolist — CAN (Create API Node) CLI Development
 
-Goal: automate creation of a Node + Express + TypeScript API via `npx create-api-node` (or `npx cna`). The CLI installs dependencies, configures TypeScript, ESLint/Prettier, Jest, and generates `package.json`, then exits.
+Goal: automate creation of a Node + Express + TypeScript API via `npx create-api-node` (or `npx can`). The CLI installs dependencies, configures TypeScript, ESLint/Prettier, Jest, and generates `package.json`, then exits.
 
 **Application name:** CAN - Create API Node (package: **create-api-node**)  
 **Package:** `create-api-node`  
-**Commands:** `npx create-api-node <dir>` or `npx cna <dir>`
+**Commands:** `npx create-api-node <dir>` or `npx can <dir>`
 
 ---
 
@@ -23,7 +23,7 @@ Do not commit new implementation without the corresponding test. For each code i
 
 ## Phase 1 — Project Foundation
 
-- [x] Initialize CLI `package.json` (package name `create-api-node`, bin `create-api-node` + `cna`, scripts, dependencies)
+- [x] Initialize CLI `package.json` (package name `create-api-node`, bin `create-api-node` + `can`, scripts, dependencies)
 - [x] Configure TypeScript (`tsconfig.json`) for bin, core, steps, utils
 - [x] Configure ESLint + Prettier in the CLI repo itself
 - [x] Configure Jest in the CLI repo (test, test:watch, test:coverage)
@@ -75,9 +75,9 @@ Do not commit new implementation without the corresponding test. For each code i
 
 ## Phase 5 — Publish and npx Usage
 
-- [x] Ensure CLI `package.json` has `"bin": { "create-api-node": "./dist/bin/index.js", "cna": "./dist/bin/index.js" }`
+- [x] Ensure CLI `package.json` has `"bin": { "create-api-node": "./dist/bin/index.js", "can": "./dist/bin/index.js" }`
 - [x] Build: script that compiles TypeScript to `dist/` and points bin to `dist/bin/index.js`
-- [ ] Test locally with `npm link` and `npx create-api-node` (or `npx cna`) from another directory
+- [ ] Test locally with `npm link` and `npx create-api-node` (or `npx can`) from another directory
 - [x] Publish to npm and document install/usage in README
 
 ---
