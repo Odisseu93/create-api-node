@@ -1,0 +1,69 @@
+---
+description: CLI scaffolding architecture – Modular + Pipeline (task-based)
+alwaysApply: true
+---
+
+# Architecture — CLI Pipeline (Task-based)
+
+## Overview
+
+The project is a **scaffolding CLI** (similar to Create React App or Vite) that generates a Node + Express + TypeScript API with standard tooling. The flow follows a pipeline: **input → prompts → generate → install → finalize**.
+
+## Folder Structure
+
+```
+create-my-api/
+├── bin/
+│   └── index.ts          # CLI entrypoint (shebang, parse args, invoke runner)
+│
+├── core/
+│   ├── runner.ts         # Orchestrates pipeline execution (step order)
+│   └── context.ts        # Shared state between steps (targetDir, opts, etc.)
+│
+├── steps/
+│   ├── init.ts           # Initialization (directory, validations)
+│   ├── install.ts        # Dependency installation (npm/yarn/pnpm)
+│   ├── generate.ts       # Copy/generate files from templates
+│   ├── lint.ts           # ESLint/Prettier setup in generated project
+│   └── test.ts           # Jest setup in generated project
+│
+├── templates/
+│   └── base/             # Base template (package.json, tsconfig, src, etc.)
+│
+├── utils/
+│   ├── exec.ts           # Shell command execution (npm install, npx, etc.)
+│   ├── fs.ts             # File operations (copy, write, mkdir, exists)
+│   └── logger.ts         # Formatted output (info, warn, error, success)
+│
+└── package.json
+```
+
+## Pipeline (Execution Order)
+
+1. **Input** — CLI arguments (e.g. target directory, project name).
+2. **Prompts** — Ask the user when needed (package name, package manager, etc.).
+3. **Generate** — Apply templates to target directory (create files and folders).
+4. **Install** — Run `npm install` (or equivalent) in the generated project.
+5. **Finalize** — Success message and next steps (e.g. `cd <dir> && npm run dev`).
+
+The **runner** runs **steps** in sequence; each step receives the **context** and may update it or fail (aborting the pipeline).
+
+## Dependency Rules
+
+- `bin/` imports only from `core/` (and optionally `utils/` for logger).
+- `core/runner.ts` imports steps and context; it does not know step internals (only the step interface).
+- `core/context.ts` is an immutable/updatable object (or class) with pipeline data (targetDir, projectName, packageManager, etc.).
+- **Steps** import from `core/context`, `utils/`, and optionally other steps (avoid when possible).
+- **Steps** do not import from `bin/`.
+- **Utils** do not import from `core/` or `steps/` — they are pure functions or helpers with no pipeline dependency.
+- **Templates** are files only (EJS, direct copy, etc.); application logic lives in `steps/generate.ts`.
+
+## Step Contract
+
+Each step exports a function that takes **context** and returns `Promise<void>` or updates the context. On error it throws; the runner catches and shows a user-friendly message (via `utils/logger`).
+
+## Principles
+
+- **Modular**: each step has a single responsibility; adding a new step does not require rewriting others.
+- **Pipeline**: explicit, single order; no complex branching in the runner (conditionals only inside a step if needed).
+- **Testable**: steps and utils testable with mocks for `exec` and `fs`; runner testable with mocked steps.

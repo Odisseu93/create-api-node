@@ -1,0 +1,55 @@
+---
+description: TypeScript, ESLint and Prettier standards for the CLI project
+globs: **/*.ts
+alwaysApply: false
+---
+
+# TypeScript Standards
+
+## Base Config (`tsconfig.json`)
+```json
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "paths": { "@/*": ["./*"] }
+  },
+  "include": ["bin/**/*", "core/**/*", "steps/**/*", "utils/**/*"]
+}
+```
+
+## Naming
+- **Steps**: kebab-case — `init.ts`, `generate.ts`, `install.ts`
+- **Core**: camelCase for functions — `runPipeline`, `createContext`
+- **Interfaces/Types**: PascalCase — `Context`, `Step`, `RunnerOptions`
+- **Functions/Variables**: camelCase
+- **Constants**: SCREAMING_SNAKE_CASE
+- **Files**: kebab-case — `runner.ts`, `context.ts`
+
+## Code Rules
+- Explicit types on public function parameters and return values.
+- No `any` — use `unknown` when the type is indeterminate.
+- Custom errors must extend `Error` (or a project base class).
+- Prefer `interface` for contracts and `type` for unions/intersections.
+- Steps: signature `(context: Context) => Promise<void>`.
+
+## ESLint + Prettier
+- `.eslintrc.json` with `@typescript-eslint/recommended` and `prettier`.
+- `.prettierrc`: `semi: true`, `singleQuote: true`, `printWidth: 100`, `trailingComma: 'all'`.
+- Scripts: `lint`, `lint:fix`, `format` in `package.json`.
+
+## Example (step)
+```typescript
+// ✅ CORRECT
+import type { Context } from '../core/context.js';
+
+export async function runInit(context: Context): Promise<void> {
+  const { targetDir } = context;
+  if (!targetDir) throw new Error('targetDir is required');
+  // ...
+}
+```

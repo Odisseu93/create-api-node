@@ -1,0 +1,29 @@
+---
+description: Atomic commits – one logical change per commit, small and focused
+alwaysApply: true
+---
+
+# Atomic Commits — Small and Focused
+
+## Golden Rule
+
+**Each commit must be a single logical change. If you did two tasks, make two separate commits.**
+
+---
+
+## Why Small Commits Help
+
+- **Easier code review:** Small, focused commits make it clear what changed and why for other developers.
+- **Precise rollbacks:** If a bug is introduced, you can revert only the faulty commit without losing a whole day of work.
+- **Organized history:** Clear, concise messages make it easier to navigate and maintain the codebase long term.
+- **Faster bug hunting:** Finding the source of a problem is quicker when each commit focuses on one feature or change.
+- **Continuous integration:** Frequent, small commits reduce merge conflicts between team members.
+
+---
+
+## Practices
+
+- Prefer several small commits over one large "everything" commit.
+- One feature or one fix per commit; avoid mixing unrelated changes.
+- Keep the working tree buildable (and ideally tests passing) after each commit when possible.
+- Use Conventional Commits (see 09-commits.mdc) for type, scope, and message format.

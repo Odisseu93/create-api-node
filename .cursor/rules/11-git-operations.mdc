@@ -1,0 +1,41 @@
+---
+description: Git operations (commits and pushes) – require explicit user approval and summary before running
+alwaysApply: true
+---
+
+# Git Operations — Commits and Pushes
+
+## Main Rule
+
+**NEVER run `git commit` or `git push` without explicit user approval.**
+
+Even when changes are ready, wait for the user to explicitly say "you can commit", "do the commit", "you can push", or equivalent.
+
+---
+
+## Required Flow
+
+### Before committing
+
+1. Present to the user a **summary** (in English, project default language) of what will be committed:
+   - Which files were changed.
+   - What was done and why (not the "how").
+   - The proposed commit message (Conventional Commits format).
+2. **Wait for confirmation** before running the command.
+
+### Before pushing
+
+1. Inform the user that you will push to the remote (`origin/main` or the corresponding branch).
+2. **Wait for confirmation** before running.
+
+---
+
+## Summary Example
+
+> **Proposed commit summary**
+>
+> **What changes:** Add production URL to documentation and CI workflow.
+> **Files:** `README.md`, `.github/workflows/ci.yml`.
+> **Proposed message:** `docs: add production URL to documentation and workflow`
+>
+> Proceed with the commit?

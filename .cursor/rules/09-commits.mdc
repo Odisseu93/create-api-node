@@ -1,0 +1,85 @@
+---
+description: Conventional Commits – short summary + full body, always in English
+alwaysApply: true
+---
+
+# Conventional Commits
+
+## Required Format
+```
+<type>(<scope>): <short summary>
+
+<body>
+```
+
+- **Line 1** (`subject`): type + scope + summary, up to 72 characters
+- **Line 2**: blank (required)
+- **Line 3+** (`body`): full description of what was done and why
+
+## Language
+Commits are always in **English** — subject and body.
+
+---
+
+## Allowed Types
+| Type | When to use |
+|------|--------------|
+| `feat` | New feature |
+| `fix` | Bug fix |
+| `test` | Add or fix tests |
+| `refactor` | Refactor without behavior change |
+| `chore` | Config, build, dependencies |
+| `docs` | Documentation (README, comments) |
+| `style` | Formatting, lint (no logic change) |
+| `perf` | Performance improvement |
+| `ci` | CI/CD pipelines |
+
+## Suggested Scopes
+`cli`, `core`, `steps`, `templates`, `utils`, `bin`, `config`, `tests` — adjust to the project.
+
+---
+
+## Examples
+
+### feat with body
+```
+feat(steps): add generate step to copy base template
+
+Copy templates/base into targetDir with project name substitution.
+Uses utils/fs; runner invokes step after init and before install.
+```
+
+### fix with body
+```
+fix(core): return clear error when targetDir is missing
+
+Runner now throws with a user-friendly message instead of a generic
+exception so users know exactly what to provide.
+```
+
+### test with body
+```
+test(utils): add unit tests for exec and fs
+
+Cover: exec success/failure, fs copy/write/mkdir/exists.
+All side effects mocked; no real filesystem or shell.
+```
+
+### chore with body
+```
+chore(config): add ESLint and Prettier
+
+Add .eslintrc.json with @typescript-eslint/recommended and prettier.
+Add .prettierrc with singleQuote, printWidth 100, trailingComma all.
+Scripts: lint, lint:fix, format.
+```
+
+---
+
+## Rules
+- NEVER use `git commit -m "quick fix"` or vague messages.
+- NEVER omit the body — every code change requires a description.
+- The body explains **what** and **why**, not **how**.
+- Breaking changes: add `BREAKING CHANGE:` at the end of the body.
+- Reference issues when present: `Closes #12` at the end of the body.
+- NEVER add `Co-authored-by: Cursor` or AI co-authorship in commits.

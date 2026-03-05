@@ -1,0 +1,43 @@
+---
+description: Default project language is English (en-US) – code, rules, docs, and all content
+alwaysApply: true
+---
+
+# Language Standard — English (en-US) Default
+
+## Rule
+
+**The default language of the project is English (en-US). All project content must be in English.**
+
+This applies to:
+- **Code**: file names, directory names, variables, functions, classes, interfaces, types, enums, constants, route paths, query params, DTOs, env vars, test descriptions (`describe`, `it`, `test`), comments, JSDoc
+- **Cursor rules**: `.cursor/rules/*.mdc` — titles, descriptions, and body text in English
+- **Documentation**: all `*.md` files (README, TODO, CONTRIBUTING, etc.) in English
+- **Commits**: subject and body in English (Conventional Commits)
+- **User-facing messages**: CLI output, error messages, and prompts in English
+
+## No Exceptions
+
+There are **no** language exceptions for project content. The project is not restricted to Portuguese speakers; everything is in English so that any contributor or user can understand and contribute.
+
+## Examples
+
+```typescript
+// ❌ WRONG – non-English names in code
+class FaturaEntity {
+  constructor(public readonly numeroCliente: string) {}
+}
+
+// ✅ CORRECT – English names in code
+class InvoiceEntity {
+  constructor(public readonly customerNumber: string) {}
+}
+```
+
+```
+// ❌ WRONG – non-English route paths
+GET /api/v1/faturas?numero_cliente=123
+
+// ✅ CORRECT – English route paths
+GET /api/v1/invoices?customer_number=123
+```

@@ -1,0 +1,56 @@
+---
+description: TDD + Jest – write test first, then implementation; CLI testing standards
+globs: **/*.{spec,test}.ts
+alwaysApply: false
+---
+
+# Testing — TDD + Jest (CLI)
+
+## TDD (Test-Driven Development)
+
+**Always write the test before the implementation.**
+
+1. **Red** — Write the test that fails (desired behavior not yet implemented).
+2. **Green** — Implement the minimum needed for the test to pass.
+3. **Refactor** — Improve the code while keeping tests green.
+
+- For each new feature (step, util, runner): create the `*.spec.ts` or `*.test.ts` file first, define cases and expectations, run and see the test fail; then implement in the production file until the test passes.
+- Do not commit production code without a corresponding test for the added behavior.
+
+## Config (`jest.config.ts`)
+```typescript
+export default {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  roots: ['<rootDir>'],
+  testMatch: ['**/*.spec.ts', '**/*.test.ts'],
+  moduleNameMapper: { '@/(.*)': '<rootDir>/$1' },
+  coverageThreshold: { global: { lines: 80, functions: 80 } },
+};
+```
+
+## Test File Layout
+- Unit tests **next to** the file under test: `runner.spec.ts`, `exec.spec.ts`.
+- Fixtures in `__tests__/fixtures/` (e.g. mock directories for `fs`).
+
+## What to Test
+1. **Steps**: with mocked context; assert calls to `exec`, `fs`, and context updates.
+2. **Runner**: step execution order and error handling (step throws → message/exit).
+3. **Utils (exec, fs)**: with `jest.mock('child_process')` or `fs` mocks; success and failure behavior.
+4. **Context**: creation and immutability/update per contract.
+
+## Mocks
+- Mock `utils/exec` and `utils/fs` in step tests.
+- Mock steps in runner tests.
+- Each test independent — no shared state.
+
+## Naming
+```typescript
+describe('runGenerate', () => {
+  it('should copy template files to targetDir', async () => {});
+  it('should throw when targetDir does not exist', async () => {});
+});
+```
+
+## Scripts
+`test`, `test:watch`, `test:coverage` in `package.json`.

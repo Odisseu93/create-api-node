@@ -1,0 +1,90 @@
+---
+description: Code comments and JSDoc standard – professional, no emojis, English only
+globs: **/*.ts
+alwaysApply: false
+---
+
+# Code Comments & JSDoc
+
+## Core Rules
+- Language: **English only** — no exceptions.
+- No emojis, icons, decorative symbols or ASCII art.
+- No obvious comments — never describe what the code already makes clear.
+- Comments explain **why**, not **what**. The code explains what.
+- Write as a senior developer would in a pull request description.
+
+---
+
+## When to Comment
+
+**Comment when:**
+- The reasoning behind a decision is not obvious from the code.
+- A workaround exists due to an external constraint (library bug, API quirk, business rule).
+- A non-trivial algorithm or formula is implemented.
+- A public function, class or interface needs JSDoc for consumers.
+
+**Do not comment when:**
+- The code is self-explanatory.
+- The comment just restates the variable or function name.
+- The comment describes a mechanical step (`// loop through items`, `// return result`).
+
+---
+
+## JSDoc – Public APIs
+
+All exported functions, classes, interfaces and types must have JSDoc.
+
+### Function
+```typescript
+/**
+ * Computes derived metrics from raw external data.
+ *
+ * @param data - Raw data as returned from the external service.
+ * @returns Calculated fields ready for persistence or response.
+ */
+export function calculateMetrics(data: RawDto): CalculatedDto {}
+```
+
+### Class
+```typescript
+/**
+ * Orchestrates the processing flow: validates input, calls the adapter,
+ * applies business rules and persists. Input and output are plain DTOs; no HTTP.
+ */
+export class ProcessResourceUseCase {}
+```
+
+### Interface
+```typescript
+/**
+ * Contract for adapters that call external APIs. Use case depends only on this interface.
+ */
+export interface IExternalAdapter {}
+```
+
+---
+
+## Inline Comments
+
+Use sparingly. Only for non-obvious logic.
+
+```typescript
+// ✅ GOOD — explains a non-obvious rule
+// The external API returns amounts as negative for credits; we keep the sign for reporting.
+const savings = data.creditAmount;
+
+// ❌ BAD — restates the code
+const savings = data.creditAmount; // assign savings
+```
+
+---
+
+## TODO / FIXME
+Acceptable in development; remove or resolve before merging to main.
+
+---
+
+## What to Avoid
+- `// This function does X` — redundant with the function name.
+- Commented-out code blocks — delete them; git history preserves them.
+- AI-sounding phrases: "This method is responsible for...", "In order to...", "It is worth noting that...".

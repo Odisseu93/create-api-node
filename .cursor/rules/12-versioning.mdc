@@ -1,0 +1,56 @@
+---
+description: Semantic Versioning (SemVer) – version format and when to bump MAJOR, MINOR, PATCH
+alwaysApply: true
+---
+
+# Versioning — Semantic Versioning (SemVer)
+
+The project follows [Semantic Versioning](https://semver.org/) (SemVer). See also [Software versioning (Wikipedia)](https://en.wikipedia.org/wiki/Software_versioning).
+
+## Format
+
+```
+MAJOR.MINOR.PATCH
+```
+
+- **MAJOR** — Breaking change (incompatible API or behavior).
+- **MINOR** — New backward-compatible feature.
+- **PATCH** — Backward-compatible bugfix.
+
+Example: `1.4.2` → major 1, minor 4, patch 2.
+
+## When to Bump
+
+| Change type | Bump | Example |
+|------------|------|---------|
+| Breaking change (CLI flags, output format, removed behavior) | **MAJOR** | 1.4.2 → 2.0.0 |
+| New feature (new step, new option, new template) | **MINOR** | 1.4.2 → 1.5.0 |
+| Bugfix, docs fix, non-breaking fix | **PATCH** | 1.4.2 → 1.4.3 |
+
+- **0.x.y** — Initial development; no stability guarantee. Breaking changes may occur without a MAJOR bump.
+- After **1.0.0**, follow the table above.
+
+## Relation to Conventional Commits
+
+- `fix(...)` → consider PATCH.
+- `feat(...)` → consider MINOR.
+- `BREAKING CHANGE:` in commit body or footer → MAJOR.
+- `docs`, `chore`, `style`, `refactor` (no breaking change) → PATCH or no release.
+
+## Release Branches (optional)
+
+When preparing a release, use a branch named after the version:
+
+```bash
+git checkout develop
+git pull
+git checkout -b release/1.5.0
+```
+
+Merge `release/1.5.0` into `main` (or your default release branch) and tag with `v1.5.0`. Keep `package.json` (and any other version files) in sync with the tag.
+
+## Rules
+
+- **Never** skip or reuse version numbers in published releases.
+- Tag releases as `vMAJOR.MINOR.PATCH` (e.g. `v1.4.2`).
+- Document breaking changes in release notes when bumping MAJOR.
