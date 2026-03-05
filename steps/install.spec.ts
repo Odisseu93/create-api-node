@@ -36,4 +36,12 @@ describe('runInstall', () => {
 
     expect(exec.execCommand).toHaveBeenCalledWith('pnpm install', { cwd: '/app' });
   });
+
+  it('should throw with user-friendly message when install fails', async () => {
+    jest.mocked(exec.execCommand).mockRejectedValueOnce(new Error('Command failed: npm install'));
+
+    await expect(runInstall({ targetDir: '/app', packageManager: 'npm' })).rejects.toMatchObject({
+      message: expect.stringMatching(/Install failed. .+ Run 'npm install' manually/),
+    });
+  });
 });
