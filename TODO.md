@@ -78,7 +78,7 @@ Do not commit new implementation without the corresponding test. For each code i
 - [x] Ensure CLI `package.json` has `"bin": { "create-api-node": "./dist/bin/index.js", "cna": "./dist/bin/index.js" }`
 - [x] Build: script that compiles TypeScript to `dist/` and points bin to `dist/bin/index.js`
 - [ ] Test locally with `npm link` and `npx create-api-node` (or `npx cna`) from another directory
-- [ ] Publish to npm and document install/usage in README
+- [x] Publish to npm and document install/usage in README
 
 ---
 
@@ -86,7 +86,7 @@ Do not commit new implementation without the corresponding test. For each code i
 
 (Tests are already written first in Phases 2 and 3; this phase focuses on coverage and UX.)
 
-- [ ] Review coverage: all steps, runner, and utils have corresponding tests
+- [x] Review coverage: all steps, runner, and utils have corresponding tests
 - [x] User-friendly error handling (dir already exists, permission denied, npm failed, etc.)
 - [x] CLI README with usage, templates, development scripts, and project structure
 

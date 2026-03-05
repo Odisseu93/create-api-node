@@ -1,6 +1,6 @@
 # CAN - Create API Node
 
-[![npm](https://img.shields.io/npm/v/create-api-node.svg)](https://www.npmjs.com/package/create-api-node)
+[![npm](https://img.shields.io/npm/v/create-api-node.svg)](https://www.npmjs.com/package/create-api-node) · [Source](https://github.com/Odisseu93/create-api-node)
 
 **CAN** (Create API Node) is a scaffolding CLI published on npm as **create-api-node**. Use the package name in commands (`npx create-api-node`); the product name is CAN - Create API Node. For consistency, the repo folder can be named `create-api-node` to match the package.
 
