@@ -5,6 +5,14 @@ alwaysApply: true
 
 # Git Operations — Commits and Pushes
 
+## Default Branch
+
+**The default branch is always `main`.**
+
+Use `main` for the primary branch (not `master` or other names). When pushing, pulling, or referring to the main line of development, use `origin/main`. New repositories should be initialized or renamed so that the default branch is `main`.
+
+---
+
 ## Main Rule
 
 **NEVER run `git commit` or `git push` without explicit user approval.**
